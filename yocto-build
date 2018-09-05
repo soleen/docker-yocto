@@ -1,6 +1,9 @@
 #!/bin/bash
 # -*- mode: shell-script; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
 #
+# Copyright (C) 2018 Soleen
+# Authored-by:  Pavel Tatashin <pavel.tatashin@microsoft.com>
+#
 # Copyright (C) 2018 coldnew
 # Authored-by:  Yen-Chin, Lee <coldnew.tw@gmail.com>
 #
@@ -17,10 +20,6 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
-
-# We should not have any trouble on running this script
-# set -x
-
 # SDIR store this script path
 SDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 # SNAME store the script name
@@ -28,7 +27,7 @@ SNAME="$(basename "$(test -L "$0" && readlink "$0" || echo "$0")")"
 
 # check for directory architecture
 YOCTODIR="${SDIR}"
-IMAGE="coldnew/yocto-build"
+IMAGE="yocto-build"
 CONTAINER="yocto-build"
 
 ############################################################
@@ -78,10 +77,10 @@ Description:
     The first time you run this script, you should specify yor
     yocto project directory like following:
 
-        $0 --workdir /home/coldnew/poky
+        $0 --workdir /home/soleen/poky
 
     This script will help you to pull the docker image and mount
-    the /home/coldnew/poky to container's /yocto directory, and
+    the /home/soleen/poky to container's /yocto directory, and
     you can build you yocto in this container.
 
     If you want to attach current running shell, you can use:
@@ -128,7 +127,7 @@ do
     case "$1" in
     -u | --upgrade)
         INFO "Upgrade script $NAME"
-        curl https://raw.githubusercontent.com/coldnew/docker-yocto/master/yocto-build > /tmp/$SNAME
+        curl https://raw.githubusercontent.com/soleen/docker-yocto/master/yocto-build > /tmp/$SNAME
         mv /tmp/$SNAME $SDIR/$SNAME
         chmod +x $SDIR/$SNAME
         exit $?
