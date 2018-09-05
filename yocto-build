@@ -128,7 +128,7 @@ do
     case "$1" in
     -u | --upgrade)
         INFO "Upgrade script $NAME"
-        curl https://raw.githubusercontent.com/coldnew/docker-yocto/master/yocto-build.sh > /tmp/$SNAME
+        curl https://raw.githubusercontent.com/coldnew/docker-yocto/master/yocto-build > /tmp/$SNAME
         mv /tmp/$SNAME $SDIR/$SNAME
         chmod +x $SDIR/$SNAME
         exit $?
@@ -153,7 +153,7 @@ do
     -s | --shell)
         if docker inspect $CONTAINER > /dev/null 2>&1 ; then
             INFO "Spawn /bin/bash for container: $CONTAINER"
-            docker exec -it $CONTAINER /entrypoint.sh
+            docker exec -it $CONTAINER /entrypoint
         else
             ERROR "container: $CONTAINER not exist, please use '$0 --workdir <dir to share>' first"
             exit -1
