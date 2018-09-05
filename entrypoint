@@ -1,5 +1,4 @@
 #!/bin/bash
-set -v
 
 if [ -z "${HOST_USER}" ]; then
   echo "ERROR: We need HOST_USER to be set!"; exit 100
