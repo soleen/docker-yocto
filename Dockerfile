@@ -4,7 +4,7 @@
 # Command format: Instruction [arguments / command] ..
 
 FROM ubuntu:14.04
-MAINTAINER Yen-Chin, Lee, coldnew.tw@gmail.com
+MAINTAINER Pavel, Tatashin, pavel.tatashin@microsoft.com
 
 # Update package infos first
 RUN apt-get update -y

@@ -3,17 +3,17 @@ docker-yocto
 
 ## About
 
-This repo contains docker image I use for building the yocto images.
+This repo contains docker image for building the yocto images.
 
-I use the script [yocto-build.sh](https://raw.githubusercontent.com/coldnew/docker-yocto/master/yocto-build.sh) to switch yocto building environment so I can use docker to build the [Yocto project](https://www.yoctoproject.org) instad of install a ubuntu as VM.
+Use the script [yocto-build](https://raw.githubusercontent.com/soleen/docker-yocto/master/yocto-build) to switch yocto building environment and use docker to build the [Yocto project](https://www.yoctoproject.org) instad of installing ubuntu in a VM.
 
 ## Setting up
 
-First download the [yocto-build.sh](https://raw.githubusercontent.com/coldnew/docker-yocto/master/yocto-build.sh) as `~/bin/yocto-build`
+First download the [yocto-build](https://raw.githubusercontent.com/soleen/docker-yocto/master/yocto-build) as `~/bin/yocto-build`
 
 ```sh
 mkdir -p ~/bin
-curl https://raw.githubusercontent.com/coldnew/docker-yocto/master/yocto-build.sh > ~/bin/yocto-build
+curl https://raw.githubusercontent.com/soleen/docker-yocto/master/yocto-build > ~/bin/yocto-build
 chmod +x ~/bin/yocto-build
 ```
 
@@ -27,14 +27,14 @@ export PATH=~/bin:$PATH
 
 First time to use the `yocto-build` command, you need to tell it where is the workdir we build the yocto image.
 
-For example, if I want to build yocto at `/home/coldnew/poky` then:
+For example, if I want to build yocto at `/home/soleen/poky` then:
 
 ```sh
-yocto-build --workdir /home/coldnew/poky
+yocto-build --workdir /home/soleen/poky
 ```
 
 After this command, we'll create a container named `yocto-build`, which is the environment we used to build the yocto image.
-Now you'll find your current shell is switch to the container and the `/home/coldnew/poky` is mounted to `/yocto`.
+Now you'll find your current shell is switch to the container and the `/home/soleen/poky` is mounted to `/yocto`.
 
 ## Spawn a new shell
 
