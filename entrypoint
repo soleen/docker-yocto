@@ -1,4 +1,5 @@
 #!/bin/bash
+set -v
 
 if [ -z "${HOST_USER}" ]; then
   echo "ERROR: We need HOST_USER to be set!"; exit 100
@@ -17,8 +18,12 @@ if [ -z "${HOST_GROUP}" ]; then
 fi
 
 groupadd -g ${HOST_GID} ${HOST_GROUP} 
+
 useradd ${HOST_USER} --shell /bin/bash --create-home \
 	--uid ${HOST_UID} --gid ${HOST_GID}
+
+echo ${HOST_USER} ${HOST_UID} ${HOST_GID}
+ls /home
 
 echo 'ALL ALL = (ALL) NOPASSWD: ALL' >> /etc/sudoers
 
