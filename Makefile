@@ -1,10 +1,10 @@
 all: build
 
 build:
-	docker build -t coldnew/yocto-build .
+	docker build -t soleen/yocto .
 
 run:
-	docker run -it coldnew/yocto-build
+	docker run -it soleen/yocto
 
 deploy:
-	docker push coldnew/yocto-build
+	docker push soleen/yocto

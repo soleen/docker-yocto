@@ -6,8 +6,12 @@
 FROM ubuntu
 MAINTAINER Pavel Tatashin
 
+ARG DEBIAN_FRONTEND=noninteractive
+
 # Update package infos first
 RUN apt-get update -y
+
+RUN apt-get install -y apt-utils dialog locales
 
 ## Install requred packages:
 # http://www.yoctoproject.org/docs/current/ref-manual/ref-manual.html
@@ -33,10 +37,6 @@ RUN apt-get install -y \
     desktop-file-utils libgl1-mesa-dev libglu1-mesa-dev mercurial \
     autoconf automake groff curl lzop asciidoc u-boot-tools
 
-# Install repo tool for some bsp case, like NXP's yocto
-RUN curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > /usr/bin/repo
-RUN chmod a+x /usr/bin/repo
-
 # Set the locale, else yocto will complain
 RUN locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8
@@ -48,6 +48,6 @@ WORKDIR /yocto
 
 # Add entry point, we use entrypoint to mapping host user to
 # container
-COPY entrypoint /entrypoint
+COPY ./entrypoint /entrypoint
 RUN chmod +x /entrypoint
 ENTRYPOINT ["/entrypoint"]

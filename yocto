@@ -27,8 +27,8 @@ SNAME="$(basename "$(test -L "$0" && readlink "$0" || echo "$0")")"
 
 # check for directory architecture
 YOCTODIR="${SDIR}"
-IMAGE="yocto-build"
-CONTAINER="yocto-build"
+IMAGE="soleen/yocto"
+CONTAINER="yocto"
 
 ############################################################
 #### Library for common usage functions
@@ -126,7 +126,7 @@ do
     case "$1" in
     -u | --upgrade)
         INFO "Upgrade script $NAME"
-        curl https://raw.githubusercontent.com/soleen/docker-yocto/master/yocto-build > /tmp/$SNAME
+        curl https://raw.githubusercontent.com/soleen/docker-yocto/master/yocto > /tmp/$SNAME
         mv /tmp/$SNAME $SDIR/$SNAME
         chmod +x $SDIR/$SNAME
         exit $?
