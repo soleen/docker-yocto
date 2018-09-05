@@ -3,7 +3,7 @@
 # Author:  Yen-Chin, Lee <yenchin@weintek.com>
 # Command format: Instruction [arguments / command] ..
 
-FROM ubuntu:14.04
+FROM ubuntu
 MAINTAINER Pavel, Tatashin, pavel.tatashin@microsoft.com
 
 # Update package infos first
@@ -46,8 +46,8 @@ ENV LC_ALL en_US.UTF-8
 # default workdir is /yocto
 WORKDIR /yocto
 
-# Add entry point, we use entrypoint.sh to mapping host user to
+# Add entry point, we use entrypoint to mapping host user to
 # container
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+COPY entrypoint /entrypoint
+RUN chmod +x /entrypoint
+ENTRYPOINT ["/entrypoint"]
