@@ -191,6 +191,7 @@ do
                    --env=HOST_USER=$(id -nu) \
                    --env=HOST_GROUP=$(id -ng) \
                    --name=$CONTAINER \
+		   -h $CONTAINER
                    $IMAGE
         fi
         exit $?
