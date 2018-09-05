@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ -z "${HOST_USER}" ]; then
-  echo "ERROR: We need USER to be set!"; exit 100
+  echo "ERROR: We need HOST_USER to be set!"; exit 100
 fi
 
 if [ -z "${HOST_UID}" ]; then
@@ -12,12 +12,17 @@ if [ -z "${HOST_GID}" ]; then
     echo "ERROR: We need HOST_GID be set" ; exit 100
 fi
 
+if [ -z "${HOST_GROUP}" ]; then
+    echo "ERROR: We need HOST_GROUP be set" ; exit 100
+fi
+
+groupadd -g ${HOST_GID} ${HOST_GROUP} 
 useradd ${HOST_USER} --shell /bin/bash --create-home \
-	--uid ${HOST_UID} --gid ${HOST_GID} > /dev/null 2>&1
+	--uid ${HOST_UID} --gid ${HOST_GID}
 
 echo 'ALL ALL = (ALL) NOPASSWD: ALL' >> /etc/sudoers
 
-chown -R ${HOST_UID}:${HOST_GID} /home/${USER}
+chown -R ${HOST_UID}:${HOST_GID} /home/${HOST_USER}
 
 # switch to current user
 su "${HOST_USER}"
