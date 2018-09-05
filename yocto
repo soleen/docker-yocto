@@ -126,7 +126,7 @@ do
     case "$1" in
     -u | --upgrade)
         INFO "Upgrade script $NAME"
-        curl https://raw.githubusercontent.com/soleen/docker-yocto/master/yocto > /tmp/$SNAME
+        curl https://raw.githubusercontent.com/soleen/yocto/master/yocto > /tmp/$SNAME
         mv /tmp/$SNAME $SDIR/$SNAME
         chmod +x $SDIR/$SNAME
         exit $?

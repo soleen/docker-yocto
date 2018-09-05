@@ -1,19 +1,19 @@
-docker-yocto
+yocto
 =================
 
 ## About
 
 This repo contains docker image for building the yocto images.
 
-Use the script [yocto](https://raw.githubusercontent.com/soleen/docker-yocto/master/yocto) to switch yocto building environment and use docker to build the [Yocto project](https://www.yoctoproject.org) instad of installing ubuntu in a VM.
+Use the script [yocto](https://raw.githubusercontent.com/soleen/yocto/master/yocto) to switch yocto building environment and use docker to build the [Yocto project](https://www.yoctoproject.org) instad of installing ubuntu in a VM.
 
 ## Setting up
 
-First download the [yocto](https://raw.githubusercontent.com/soleen/docker-yocto/master/yocto) as `~/bin/yocto`
+First download the [yocto](https://raw.githubusercontent.com/soleen/yocto/master/yocto) as `~/bin/yocto`
 
 ```sh
 mkdir -p ~/bin
-curl https://raw.githubusercontent.com/soleen/docker-yocto/master/yocto > ~/bin/yocto
+curl https://raw.githubusercontent.com/soleen/yocto/master/yocto > ~/bin/yocto
 chmod +x ~/bin/yocto
 ```
 
