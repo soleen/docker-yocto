@@ -188,7 +188,7 @@ do
                    --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
                    --env=HOST_UID=$(id -u) \
                    --env=HOST_GID=$(id -g) \
-                   --env=USER=${USER} \
+                   --env=HOST_USER=$(id -nu) \
                    --name=$CONTAINER \
                    $IMAGE
         fi
