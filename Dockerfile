@@ -6,36 +6,41 @@
 FROM ubuntu
 MAINTAINER Pavel Tatashin
 
-ARG DEBIAN_FRONTEND=noninteractive
-
 # Update package infos first
-RUN apt-get update -y
+RUN DEBIAN_FRONTEND=noninteractive apt-get update -y --no-install-recommends
 
-RUN apt-get install -y apt-utils dialog locales
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+     apt-utils
+
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+     dialog locales
 
 ## Install requred packages:
 # http://www.yoctoproject.org/docs/current/ref-manual/ref-manual.html
 
 # Essentials
-RUN apt-get install -y gawk wget git-core diffstat unzip texinfo gcc-multilib \
-     build-essential chrpath socat cpio python python3 python3-pip python3-pexpect \
-     xz-utils debianutils iputils-ping vim bc g++-multilib
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+     gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential \
+     chrpath socat cpio python python3 python3-pip python3-pexpect xz-utils \
+     debianutils iputils-ping vim bc g++-multilib
 
 # Graphical and Eclipse Plug-In Extras
-RUN apt-get install -y libsdl1.2-dev xterm
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+     libsdl1.2-dev xterm
 
 # Documentation
-RUN apt-get install -y make xsltproc docbook-utils fop dblatex xmlto
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+     make xsltproc docbook-utils fop dblatex xmlto
 
 # OpenEmbedded Self-Test
-RUN apt-get install -y python-git
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+     python-git
 
 # Extra package for build with NXP's images
-RUN apt-get install -y \
-    sed cvs subversion coreutils texi2html \
-    python-pysqlite2 help2man  gcc g++ \
-    desktop-file-utils libgl1-mesa-dev libglu1-mesa-dev mercurial \
-    autoconf automake groff curl lzop asciidoc u-boot-tools
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+    sed cvs subversion coreutils texi2html python-pysqlite2 help2man  gcc g++ \
+    desktop-file-utils libgl1-mesa-dev libglu1-mesa-dev mercurial autoconf \
+    automake groff curl lzop asciidoc u-boot-tools
 
 # Set the locale, else yocto will complain
 RUN locale-gen en_US.UTF-8
