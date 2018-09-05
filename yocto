@@ -189,6 +189,7 @@ do
                    --env=HOST_UID=$(id -u) \
                    --env=HOST_GID=$(id -g) \
                    --env=HOST_USER=$(id -nu) \
+                   --env=HOST_GROUP=$(id -ng) \
                    --name=$CONTAINER \
                    $IMAGE
         fi
