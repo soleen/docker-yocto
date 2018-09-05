@@ -4,7 +4,7 @@
 # Command format: Instruction [arguments / command] ..
 
 FROM ubuntu
-MAINTAINER Pavel, Tatashin, pavel.tatashin@microsoft.com
+MAINTAINER Pavel Tatashin
 
 # Update package infos first
 RUN apt-get update -y
