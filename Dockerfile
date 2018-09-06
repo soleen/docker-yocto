@@ -3,7 +3,7 @@
 # Author:  Yen-Chin, Lee <yenchin@weintek.com>
 # Command format: Instruction [arguments / command] ..
 
-FROM ubuntu
+FROM ubuntu:16.04
 MAINTAINER Pavel Tatashin
 
 # http://www.yoctoproject.org/docs/current/ref-manual/ref-manual.html
