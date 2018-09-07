@@ -31,5 +31,8 @@ chown -R ${HOST_UID}:${HOST_GID} /home/${HOST_USER}
 # switch to current user
 su "${HOST_USER}"
 
+sudo mkdir /yocto-cache
+sudo chown ${HOST_USER}:${HOST_USER} /yocto-cache
+
 # enter to shell
 exec /bin/bash
