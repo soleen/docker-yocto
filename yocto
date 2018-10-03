@@ -182,6 +182,8 @@ do
                    --volume="$YOCTODIR:/yocto" \
                    --volume="${HOME}/.ssh:/home/${USER}/.ssh" \
                    --volume="${HOME}/.gitconfig:/home/${USER}/.gitconfig" \
+                   --volume="${HOME}/.vimrc:/home/${USER}/.vimrc" \
+                   --volume="${HOME}/.vim:/home/${USER}/.vim" \
                    --volume="/etc/localtime:/etc/localtime:ro" \
                    --env="DISPLAY" \
                    --env="QT_X11_NO_MITSHM=1" \
