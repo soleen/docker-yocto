@@ -17,7 +17,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update -y --no-install-recommends \
    sed cvs subversion coreutils texi2html python-pysqlite2 help2man  gcc g++ \
    desktop-file-utils libgl1-mesa-dev libglu1-mesa-dev mercurial autoconf \
    automake groff curl lzop asciidoc u-boot-tools ssh sudo file libssl-dev \
-   libncurses-dev bison flex rsync
+   libncurses-dev bison flex rsync imagemagick
 
 # Set the locale, else yocto will complain
 RUN locale-gen en_US.UTF-8
