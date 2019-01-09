@@ -27,6 +27,11 @@ ENV LANG=en_US.UTF-8 LANGUAGE=en_US:en LC_ALL=en_US.UTF-8
 # default workdir is /yocto
 WORKDIR /yocto
 
+# install vsts-cli
+RUN wget https://github.com/Microsoft/vsts-cli/releases/download/0.1.4/install.py -O /tmp/install.py
+RUN chmod +x /tmp/install.py
+RUN echo -e "y\n/opt/vsts-cli\ny\n\n" | sudo /tmp/install.py
+
 # Add entry point, we use entrypoint to mapping host user to
 # container
 COPY ./entrypoint /entrypoint
