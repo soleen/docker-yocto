@@ -28,9 +28,13 @@ ENV LANG=en_US.UTF-8 LANGUAGE=en_US:en LC_ALL=en_US.UTF-8
 WORKDIR /yocto
 
 # install vsts-cli
-RUN wget https://github.com/Microsoft/vsts-cli/releases/download/0.1.4/install.py -O /tmp/install.py
+#RUN wget https://github.com/Microsoft/vsts-cli/releases/download/0.1.4/install.py -O /tmp/install.py
+# Get the latest install.py version path in /tmp/vsts-path, assume file has INSTALL_SCRIPT_URL="path"
+RUN wget -O - https://aka.ms/install-vsts-cli 2>&1 | grep INSTALL_SCRIPT_URL | head -1 | cut -f2 -d= | tr -d '"' > /tmp/vsts-path
+RUN wget -i /tmp/vsts-path -O /tmp/install.py
 RUN chmod +x /tmp/install.py
 RUN echo -e "y\n/opt/vsts-cli\ny\n/etc/bash.bashrc\n" | sudo /tmp/install.py
+RUN rm /tmp/install.py /tmp/vsts-path
 
 # Add entry point, we use entrypoint to mapping host user to
 # container
