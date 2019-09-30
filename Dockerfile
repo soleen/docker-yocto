@@ -38,7 +38,6 @@ WORKDIR /yocto
 #RUN echo -e "y\n/opt/vsts-cli\ny\n/etc/bash.bashrc\n" | sudo /tmp/install.py
 #RUN rm /tmp/install.py /tmp/vsts-path
 RUN curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
-RUN az extension add --name azure-devops
 
 # Add entry point, we use entrypoint to mapping host user to
 # container
