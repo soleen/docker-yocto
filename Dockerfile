@@ -18,7 +18,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update -y --no-install-recommends \
    desktop-file-utils libgl1-mesa-dev libglu1-mesa-dev mercurial autoconf \
    automake groff curl lzop asciidoc u-boot-tools ssh sudo file libssl-dev \
    libncurses-dev bison flex rsync imagemagick python-wand libmagickwand-dev \
-   libcurl3 libunwind8 libunwind8-dev libffi-dev python-dev parallel	\
+   libcurl4 libunwind8 libunwind8-dev libffi-dev python-dev parallel	\
    pseudo cryptsetup squashfs-tools
 
 
