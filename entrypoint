@@ -36,7 +36,7 @@ sudo mkdir /yocto-cache
 sudo chown ${HOST_USER}:${HOST_USER} /yocto-cache
 
 # switch to current user
-exec su "${HOST_USER}" -c /bin/bash
+exec su "${HOST_USER}"
 
 # enter to shell
 #exec /bin/bash
